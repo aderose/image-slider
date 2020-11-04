@@ -34,3 +34,28 @@ function showImage({ src, alt }) {
 
 // show the first carousel image on load
 showImage(carousel[0]);
+
+// get the modulus of +ve & -ve numbers
+function mod(x, n) {
+  return ((x % n) + n) % n;
+}
+
+let iterator = 0;
+const forward = document.querySelector('#forward');
+const backward = document.querySelector('#backward');
+
+// move forwards, loop back to first image at the end
+function moveForward() {
+  iterator = mod(iterator + 1, carousel.length);
+  showImage(carousel[iterator]);
+}
+
+// move backwards, loop back to last image at the start
+function moveBackward() {
+  iterator = mod(iterator - 1, carousel.length);
+  showImage(carousel[iterator]);
+}
+
+// listen for clicks on the forward/backward buttons
+forward.addEventListener('click', moveForward);
+backward.addEventListener('click', moveBackward);
