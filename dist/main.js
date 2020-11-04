@@ -7,11 +7,108 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/imageCarousel.js":
+/*!******************************!*\
+  !*** ./src/imageCarousel.js ***!
+  \******************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => /* binding */ imageCarousel\n/* harmony export */ });\n/* harmony import */ var _slide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slide */ \"./src/slide.js\");\n;\n\nfunction imageCarousel({ containerSelector, images }) {\n  const container = document.querySelector(containerSelector);\n  const slides = images.map((img) => _slide__WEBPACK_IMPORTED_MODULE_0__.default.create(img));\n  let iterator = 0;\n\n  // empty the container and show the new slide\n  function showSlide(slideObj) {\n    container.innerHTML = '';\n    container.appendChild(slideObj);\n  }\n\n  // compute the modulus of +ve & -ve numbers\n  function mod(x, n) {\n    return ((x % n) + n) % n;\n  }\n\n  // move forwards, loop back to first slide at the end\n  function moveForward() {\n    iterator = mod(iterator + 1, images.length);\n    showSlide(slides[iterator]);\n  }\n\n  // move backwards, loop back to last slide at the start\n  function moveBackward() {\n    iterator = mod(iterator - 1, images.length);\n    showSlide(slides[iterator]);\n  }\n\n  // initialise carousel with the first slide\n  showSlide(slides[0]);\n\n  return { moveForward, moveBackward };\n}\n\n\n//# sourceURL=webpack://image-slider/./src/imageCarousel.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! unknown exports (runtime-defined) */
-/*! runtime requirements:  */
-eval("const carousel = [\n  {\n    src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',\n    alt: 'Lovely Beach',\n  },\n  {\n    src: 'https://images.unsplash.com/photo-1532124957326-34c5605398',\n    alt: 'Ski Slope',\n  },\n  {\n    src: 'https://images.unsplash.com/photo-1467453678174-768ec283a940',\n    alt: 'Healthy Living',\n  },\n  {\n    src: 'https://images.unsplash.com/photo-1580894894513-541e068a3e2b',\n    alt: 'Working',\n  },\n  {\n    src: 'https://images.unsplash.com/photo-1519852476561-ec618b0183ba',\n    alt: 'Grand river',\n  },\n];\n\nconst imageDiv = document.querySelector('#image');\n\n// add the provided image to the image container\nfunction showImage({ src, alt }) {\n  imageDiv.innerHTML = '';\n  const image = document.createElement('img');\n  image.setAttribute('src', src);\n  image.setAttribute('alt', alt);\n  imageDiv.appendChild(image);\n}\n\n// show the first carousel image on load\nshowImage(carousel[0]);\n\n// get the modulus of +ve & -ve numbers\nfunction mod(x, n) {\n  return ((x % n) + n) % n;\n}\n\nlet iterator = 0;\nconst forward = document.querySelector('#forward');\nconst backward = document.querySelector('#backward');\n\n// move forwards, loop back to first image at the end\nfunction moveForward() {\n  iterator = mod(iterator + 1, carousel.length);\n  showImage(carousel[iterator]);\n}\n\n// move backwards, loop back to last image at the start\nfunction moveBackward() {\n  iterator = mod(iterator - 1, carousel.length);\n  showImage(carousel[iterator]);\n}\n\n// listen for clicks on the forward/backward buttons\nforward.addEventListener('click', moveForward);\nbackward.addEventListener('click', moveBackward);\n\n\n//# sourceURL=webpack://image-slider/./src/index.js?");
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _imageCarousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./imageCarousel */ \"./src/imageCarousel.js\");\n;\n\n// initialise the image carousel module with a parent container selector and a\n// list of images\nconst carousel = (0,_imageCarousel__WEBPACK_IMPORTED_MODULE_0__.default)({\n  containerSelector: '#image',\n  images: [\n    {\n      src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',\n      alt: 'Lovely Beach',\n    },\n    {\n      src: 'https://images.unsplash.com/photo-1532124957326-34c5605398',\n      alt: 'Ski Slope',\n    },\n    {\n      src: 'https://images.unsplash.com/photo-1467453678174-768ec283a940',\n      alt: 'Healthy Living',\n    },\n    {\n      src: 'https://images.unsplash.com/photo-1580894894513-541e068a3e2b',\n      alt: 'Working',\n    },\n    {\n      src: 'https://images.unsplash.com/photo-1519852476561-ec618b0183ba',\n      alt: 'Grand river',\n    },\n  ],\n});\n\n// move forward when the forward button is clicked\nconst forward = document.querySelector('#forward');\nforward.addEventListener('click', carousel.moveForward);\n\n// move backward when the backward button is clicked\nconst backward = document.querySelector('#backward');\nbackward.addEventListener('click', carousel.moveBackward);\n\n\n//# sourceURL=webpack://image-slider/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/slide.js":
+/*!**********************!*\
+  !*** ./src/slide.js ***!
+  \**********************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((function slide() {\n  function create({ src, alt }) {\n    const image = document.createElement('img');\n    image.setAttribute('src', src);\n    image.setAttribute('alt', alt);\n    return image;\n  }\n  return { create };\n})());\n\n\n//# sourceURL=webpack://image-slider/./src/slide.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	// startup
+/******/ 	// Load entry module
+/******/ 	__webpack_require__("./src/index.js");
+/******/ 	// This entry module used 'exports' so it can't be inlined
 /******/ })()
 ;
