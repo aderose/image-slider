@@ -138,3 +138,38 @@ header h1 {
   box-shadow: 0 0 5px 3px var(--shadow);
   border-radius: 5px;
 }
+
+/* Image animation styling */
+@keyframes forward {
+  0% {
+    transform: translateX(-125%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes backward {
+  0% {
+    transform: translateX(125%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.next {
+  animation: forward 0.5s 1 forwards;
+}
+
+.previous {
+  animation: backward 0.5s 1 forwards;
+}
+
+.before-next {
+  animation: backward 0.2s 1 forwards reverse;
+}
+
+.before-previous {
+  animation: forward 0.2s 1 forwards reverse;
+}
