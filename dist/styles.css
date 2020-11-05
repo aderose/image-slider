@@ -18,11 +18,10 @@ button:focus {
 
 /* Generic styles */
 :root {
-  --dark: rgb(35, 35, 35);
-  --main: rebeccapurple;
-  --background: rgb(245, 245, 245);
-  --clear: white;
-  --shadow: rgba(0, 0, 0, 0.05);
+  --main: rgb(29, 207, 192);
+  --background: rgb(35, 35, 35);
+  --clear: rgb(75, 75, 75);
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -39,7 +38,7 @@ header {
 }
 
 header h1 {
-  color: var(--dark);
+  color: var(--main);
   font-weight: 700;
   font-size: 4em;
 }
