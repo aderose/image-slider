@@ -1,9 +1,10 @@
 import imageCarousel from './imageCarousel';
 
-// initialise the image carousel module with a parent container selector and a
-// list of images
+// initialise the image carousel module within a parent container using the
+// provided list of images
 const carousel = imageCarousel({
   containerSelector: '#image',
+  controlsSelector: '#controls',
   images: [
     {
       src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
@@ -27,6 +28,8 @@ const carousel = imageCarousel({
     },
   ],
 });
+
+carousel.init();
 
 // move forward when the forward button is clicked
 const forward = document.querySelector('#forward');
