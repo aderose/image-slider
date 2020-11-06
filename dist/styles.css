@@ -133,7 +133,7 @@ header h1 {
 }
 
 .image img {
-  width: 95%;
+  width: 400px;
   box-shadow: 0 0 5px 3px var(--shadow);
   border-radius: 5px;
 }
@@ -174,8 +174,12 @@ header h1 {
 }
 
 @media (min-width: 1000px) {
+  .image img {
+    width: 600px;
+  }
+
   .content {
     margin-top: 1em;
-    height: 90%;
+    height: 85%;
   }
 }
