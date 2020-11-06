@@ -67,6 +67,9 @@ export default function imageCarousel({
     const initial = slides[0];
     initial.slideLink.updateStatus({ isActive: true });
     container.appendChild(initial.image);
+
+    // advance slides every 5 seconds
+    setInterval(moveForward, 5000);
   }
 
   return { init, moveForward, moveBackward };
