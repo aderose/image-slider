@@ -49,6 +49,17 @@ export default function imageCarousel({
     // add slide navigation links to the display controls
     slides.forEach((s) => {
       const linkButton = s.slideLink.link;
+
+      // when a link button is clicked, switch to the corresponding slide
+      linkButton.addEventListener('click', () => {
+        // if the display is currently switching, prevent execution
+        if (isSwitching) return;
+        const previousIndex = iterator;
+        iterator = Number(linkButton.id);
+        if (previousIndex === iterator) return;
+        const direction = iterator > previousIndex ? 'next' : 'previous';
+        switchSlide(previousIndex, iterator, direction);
+      });
       controls.appendChild(linkButton);
     });
 
