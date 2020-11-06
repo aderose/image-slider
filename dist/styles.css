@@ -46,8 +46,8 @@ header h1 {
 /* image slider body */
 .content {
   width: 80%;
-  height: 80%;
-  max-width: 1000px;
+  height: 60%;
+  max-width: 900px;
   min-width: 600px;
   margin: auto;
   margin-top: 5em;
@@ -171,4 +171,11 @@ header h1 {
 
 .before-previous {
   animation: forward 0.2s 1 forwards reverse;
+}
+
+@media (min-width: 1000px) {
+  .content {
+    margin-top: 1em;
+    height: 90%;
+  }
 }
