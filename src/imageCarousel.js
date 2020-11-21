@@ -12,16 +12,15 @@ export default function imageCarousel({
   let isSwitching = false;
 
   function switchSlide(previousIndex, nextIndex, direction) {
-    slides[previousIndex].deactivate(direction);
     isSwitching = true;
-    // after the previous slide has been hidden, show the next slide
-    setTimeout(() => {
+    // hide previous slide then show next one
+    slides[previousIndex].deactivate(direction).then(() => {
       const next = slides[nextIndex];
       container.innerHTML = '';
       next.activate(direction);
       container.appendChild(next.image);
       isSwitching = false;
-    }, 200);
+    });
   }
 
   // compute the modulus of +ve & -ve numbers
